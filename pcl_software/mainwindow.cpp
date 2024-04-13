@@ -7,12 +7,15 @@
 #include<QQueue>
 #include<vtkColorTransferFunction.h>
 #include <vtkScalarBarActor.h>
-
+#include <pcl/io/pcd_io.h>
+#include <pcl/io/vtk_lib_io.h>
+#include <pcl/surface/gp3.h>
+#include <pcl/features/normal_3d.h>
 
 QQueue<LogElement> log_txt;
 
 MainWindow::MainWindow(QWidget *parent):
-    QMainWindow(parent), ui(new Ui::MainWindow)
+    QMainWindow(parent), ui(new Ui::MainWindow), buttonsEnabled(false)
 {
     ui->setupUi(this);
     int count=1;
@@ -44,6 +47,7 @@ MainWindow::MainWindow(QWidget *parent):
         if (filename.isEmpty ())
             return;
 
+
         ui->guiwidget->update();//确保更新ui->guiwidget上的显示
 
         int return_status;
@@ -58,6 +62,8 @@ MainWindow::MainWindow(QWidget *parent):
             PCL_ERROR("Error reading point cloud %s\n", filename.toStdString ().c_str ());
             return;
         }
+        // 加载点云成功后解除按钮的禁用状态
+        setButtonsEnabled(true);
         // 获取点云中点的数量并将其转换为字符串
         int point_num = cloudptr->size();
         QString point_num_str = QString::number(point_num);
@@ -78,6 +84,8 @@ MainWindow::MainWindow(QWidget *parent):
         ui->guiwidget->update();//更新ui->guiwidget上的显示
 
     });
+
+
 
 
     //保存点云
@@ -106,7 +114,48 @@ MainWindow::MainWindow(QWidget *parent):
             }
         }
     });
+    //转stl
+    connect(ui->actionSTL, &QAction::triggered, this, [cloudptr,this]{
+        QString filename = QFileDialog::getSaveFileName(this, tr("Save STL File"), "", tr("STL Files (*.stl)"));
+        if (filename.isEmpty()) {
+            return;
+        }
+        if (filename.endsWith(".stl", Qt::CaseInsensitive)) {
+            // 创建点云副本，使用智能指针管理内存
+            std::shared_ptr<pcl::PointCloud<pcl::PointXYZ>> modifiedCloud(new pcl::PointCloud<pcl::PointXYZ>(*cloudptr));
+            if (modifiedCloud->empty()) {
+                return;
+            }
 
+            pcl::NormalEstimation<pcl::PointXYZ, pcl::Normal> n;
+            pcl::PointCloud<pcl::Normal>::Ptr normals(new pcl::PointCloud<pcl::Normal>);
+            pcl::search::KdTree<pcl::PointXYZ>::Ptr tree(new pcl::search::KdTree<pcl::PointXYZ>);
+            tree->setInputCloud(modifiedCloud);
+            n.setInputCloud(modifiedCloud);
+            n.setSearchMethod(tree);
+            n.setKSearch(10);
+            n.compute(*normals);
+            pcl::PointCloud<pcl::PointNormal>::Ptr cloud_with_normals(new pcl::PointCloud<pcl::PointNormal>);
+            pcl::concatenateFields(*modifiedCloud, *normals, *cloud_with_normals);
+            pcl::search::KdTree<pcl::PointNormal>::Ptr tree2(new pcl::search::KdTree<pcl::PointNormal>);
+            tree2->setInputCloud(cloud_with_normals);
+            pcl::GreedyProjectionTriangulation<pcl::PointNormal> gp3;
+            pcl::PolygonMesh triangles;
+
+            // Set the maximum distance between connected points (maximum edge length)
+            gp3.setSearchRadius(1);
+            gp3.setMu(2.5);
+            gp3.setMaximumNearestNeighbors(100);
+            gp3.setMaximumSurfaceAngle(M_PI / 4);
+            gp3.setMinimumAngle(M_PI / 18);
+            gp3.setMaximumAngle(2 * M_PI / 3);
+            gp3.setNormalConsistency(false); // Reconstruct
+            gp3.setInputCloud(cloud_with_normals); gp3.setSearchMethod(tree2);
+            gp3.reconstruct(triangles); // Save STL file pcl::io::savePolygonFileSTL(filename.toStdString(), triangles);
+            pcl::io::savePolygonFileSTL(filename.toStdString(), triangles);
+            return;
+        }
+    });
 
     //退出程序
     connect(ui->exit_action,&QAction::triggered,this,[=]{
@@ -127,7 +176,40 @@ MainWindow::~MainWindow()
 }
 
 
+void MainWindow::setButtonsEnabled(bool enabled)
+{
 
+    // 更改ui为可用
+    ui->save_action->setEnabled(enabled);
+    ui->exit_action->setEnabled(enabled);
+    ui->main_view->setEnabled(enabled);
+    ui->back_view->setEnabled(enabled);
+    ui->left_view->setEnabled(enabled);
+    ui->right_view->setEnabled(enabled);
+    ui->upward_view->setEnabled(enabled);
+    ui->top_view->setEnabled(enabled);
+    ui->render_begin->setEnabled(enabled);
+    ui->comboBox->setEnabled(enabled);
+    ui->comboBox_2->setEnabled(enabled);
+    ui->main_view->setEnabled(enabled);
+    ui->back_view->setEnabled(enabled);
+    ui->left_view->setEnabled(enabled);
+    ui->right_view->setEnabled(enabled);
+    ui->upward_view->setEnabled(enabled);
+    ui->top_view->setEnabled(enabled);
+    ui->render_begin->setEnabled(enabled);
+    ui->textEdit->setEnabled(enabled);
+    ui->textBrowser->setEnabled(enabled);
+    ui->menu_2->setEnabled(enabled);
+    ui->menu_3->setEnabled(enabled);
+    ui->menu_4->setEnabled(enabled);
+    ui->menu_5->setEnabled(enabled);
+    ui->menu_6->setEnabled(enabled);
+    ui->menu_7->setEnabled(enabled);
+    ui->menu_8->setEnabled(enabled);
+    ui->menu_9->setEnabled(enabled);
+
+}
 
 
 

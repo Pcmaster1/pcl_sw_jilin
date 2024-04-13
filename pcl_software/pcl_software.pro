@@ -23,23 +23,24 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-INCLUDEPATH += 'D:/Program Files/PCL 1.13.0/include/pcl-1.13/'
+INCLUDEPATH += 'C:/Program Files/PCL 1.13.1/include/pcl-1.13/'
 
-INCLUDEPATH += 'D:/Program Files/PCL 1.13.0/3rdParty/Boost/include/boost-1_80/'
+INCLUDEPATH += 'C:/Program Files/PCL 1.13.1/3rdParty/Boost/include/boost-1_82/'
 
-INCLUDEPATH += 'D:/Program Files/PCL 1.13.0/3rdParty/Eigen/eigen3/'
+INCLUDEPATH += 'C:/Program Files/PCL 1.13.1/3rdParty/Eigen/eigen3/'
 
-INCLUDEPATH += 'D:/Program Files/PCL 1.13.0/3rdParty/FLANN/include/'
+INCLUDEPATH += 'C:/Program Files/PCL 1.13.1/3rdParty/FLANN/include/'
 
-INCLUDEPATH += 'D:/Program Files/PCL 1.13.0/3rdParty/OpenNI2/Include/'
+INCLUDEPATH += 'C:/Program Files/PCL 1.13.1/3rdParty/OpenNI2/Include/'
 
-INCLUDEPATH += 'D:/Program Files/PCL 1.13.0/3rdParty/Qhull/include/'
+INCLUDEPATH += 'C:/Program Files/PCL 1.13.1/3rdParty/Qhull/include/'
 
-INCLUDEPATH += 'D:/Program Files/PCL 1.13.0/3rdParty/VTK/include/vtk-9.2/'
+INCLUDEPATH += 'C:/Program Files/PCL 1.13.1/3rdParty/VTK/include/vtk-9.2/'
 
 CONFIG += debug_and_release
 CONFIG(debug，debug|release){
-LIBS += -L'D:\Program Files\PCL 1.13.0\lib'\
+
+LIBS += -L'C:\Program Files\PCL 1.13.1\lib'\
 -lpcl_commond\
 -lpcl_featuresd\
 -lpcl_filtersd\
@@ -60,65 +61,70 @@ LIBS += -L'D:\Program Files\PCL 1.13.0\lib'\
 -lpcl_surfaced\
 -lpcl_trackingd\
 -lpcl_visualizationd
-LIBS += -L'D:\Program Files\PCL 1.13.0\3rdParty/Boost\lib'\
--llibboost_atomic-vc143-mt-gd-x64-1_80\
--llibboost_bzip2-vc143-mt-gd-x64-1_80\
--llibboost_chrono-vc143-mt-gd-x64-1_80\
--llibboost_container-vc143-mt-gd-x64-1_80\
--llibboost_context-vc143-mt-gd-x64-1_80\
--llibboost_contract-vc143-mt-gd-x64-1_80\
--llibboost_coroutine-vc143-mt-gd-x64-1_80\
--llibboost_date_time-vc143-mt-gd-x64-1_80\
--llibboost_exception-vc143-mt-gd-x64-1_80\
--llibboost_fiber-vc143-mt-gd-x64-1_80\
--llibboost_filesystem-vc143-mt-gd-x64-1_80\
--llibboost_graph-vc143-mt-gd-x64-1_80\
--llibboost_graph_parallel-vc143-mt-gd-x64-1_80\
--llibboost_iostreams-vc143-mt-gd-x64-1_80\
--llibboost_json-vc143-mt-gd-x64-1_80\
--llibboost_locale-vc143-mt-gd-x64-1_80\
--llibboost_log-vc143-mt-gd-x64-1_80\
--llibboost_log_setup-vc143-mt-gd-x64-1_80\
--llibboost_math_c99-vc143-mt-gd-x64-1_80\
--llibboost_math_c99f-vc143-mt-gd-x64-1_80\
--llibboost_math_c99l-vc143-mt-gd-x64-1_80\
--llibboost_math_tr1-vc143-mt-gd-x64-1_80\
--llibboost_math_tr1f-vc143-mt-gd-x64-1_80\
--llibboost_math_tr1l-vc143-mt-gd-x64-1_80\
--llibboost_mpi-vc143-mt-gd-x64-1_80\
--llibboost_nowide-vc143-mt-gd-x64-1_80\
--llibboost_numpy310-vc143-mt-gd-x64-1_80\
--llibboost_prg_exec_monitor-vc143-mt-gd-x64-1_80\
--llibboost_program_options-vc143-mt-gd-x64-1_80\
--llibboost_python310-vc143-mt-gd-x64-1_80\
--llibboost_random-vc143-mt-gd-x64-1_80\
--llibboost_regex-vc143-mt-gd-x64-1_80\
--llibboost_serialization-vc143-mt-gd-x64-1_80\
--llibboost_stacktrace_noop-vc143-mt-gd-x64-1_80\
--llibboost_stacktrace_windbg-vc143-mt-gd-x64-1_80\
--llibboost_stacktrace_windbg_cached-vc143-mt-gd-x64-1_80\
--llibboost_system-vc143-mt-gd-x64-1_80\
--llibboost_test_exec_monitor-vc143-mt-gd-x64-1_80\
--llibboost_thread-vc143-mt-gd-x64-1_80\
--llibboost_timer-vc143-mt-gd-x64-1_80\
--llibboost_type_erasure-vc143-mt-gd-x64-1_80\
--llibboost_unit_test_framework-vc143-mt-gd-x64-1_80\
--llibboost_wave-vc143-mt-gd-x64-1_80\
--llibboost_wserialization-vc143-mt-gd-x64-1_80\
--llibboost_zlib-vc143-mt-gd-x64-1_80
-LIBS += -L'D:\Program Files\PCL 1.13.0\3rdParty\FLANN\lib'\
+
+LIBS += -L'C:\Program Files\PCL 1.13.1\3rdParty\Boost\lib'\
+-llibboost_atomic-vc143-mt-gd-x64-1_82\
+-llibboost_bzip2-vc143-mt-gd-x64-1_82\
+-llibboost_chrono-vc143-mt-gd-x64-1_82\
+-llibboost_container-vc143-mt-gd-x64-1_82\
+-llibboost_context-vc143-mt-gd-x64-1_82\
+-llibboost_contract-vc143-mt-gd-x64-1_82\
+-llibboost_coroutine-vc143-mt-gd-x64-1_82\
+-llibboost_date_time-vc143-mt-gd-x64-1_82\
+-llibboost_exception-vc143-mt-gd-x64-1_82\
+-llibboost_fiber-vc143-mt-gd-x64-1_82\
+-llibboost_filesystem-vc143-mt-gd-x64-1_82\
+-llibboost_graph-vc143-mt-gd-x64-1_82\
+-llibboost_graph_parallel-vc143-mt-gd-x64-1_82\
+-llibboost_iostreams-vc143-mt-gd-x64-1_82\
+-llibboost_json-vc143-mt-gd-x64-1_82\
+-llibboost_locale-vc143-mt-gd-x64-1_82\
+-llibboost_log-vc143-mt-gd-x64-1_82\
+-llibboost_log_setup-vc143-mt-gd-x64-1_82\
+-llibboost_math_c99-vc143-mt-gd-x64-1_82\
+-llibboost_math_c99f-vc143-mt-gd-x64-1_82\
+-llibboost_math_c99l-vc143-mt-gd-x64-1_82\
+-llibboost_math_tr1-vc143-mt-gd-x64-1_82\
+-llibboost_math_tr1f-vc143-mt-gd-x64-1_82\
+-llibboost_math_tr1l-vc143-mt-gd-x64-1_82\
+-llibboost_mpi-vc143-mt-gd-x64-1_82\
+-llibboost_nowide-vc143-mt-gd-x64-1_82\
+-llibboost_numpy310-vc143-mt-gd-x64-1_82\
+-llibboost_prg_exec_monitor-vc143-mt-gd-x64-1_82\
+-llibboost_program_options-vc143-mt-gd-x64-1_82\
+-llibboost_python310-vc143-mt-gd-x64-1_82\
+-llibboost_random-vc143-mt-gd-x64-1_82\
+-llibboost_regex-vc143-mt-gd-x64-1_82\
+-llibboost_serialization-vc143-mt-gd-x64-1_82\
+-llibboost_stacktrace_noop-vc143-mt-gd-x64-1_82\
+-llibboost_stacktrace_windbg-vc143-mt-gd-x64-1_82\
+-llibboost_stacktrace_windbg_cached-vc143-mt-gd-x64-1_82\
+-llibboost_system-vc143-mt-gd-x64-1_82\
+-llibboost_test_exec_monitor-vc143-mt-gd-x64-1_82\
+-llibboost_thread-vc143-mt-gd-x64-1_82\
+-llibboost_timer-vc143-mt-gd-x64-1_82\
+-llibboost_type_erasure-vc143-mt-gd-x64-1_82\
+-llibboost_unit_test_framework-vc143-mt-gd-x64-1_82\
+-llibboost_url-vc143-mt-gd-x64-1_82\
+-llibboost_wave-vc143-mt-gd-x64-1_82\
+-llibboost_wserialization-vc143-mt-gd-x64-1_82\
+-llibboost_zlib-vc143-mt-gd-x64-1_82
+
+LIBS += -L'C:\Program Files\PCL 1.13.1\3rdParty\FLANN\lib'\
 -lflann-gd\
 -lflann_cpp-gd\
 -lflann_cpp_s-gd\
 -lflann_s-gd
-LIBS += -L'D:\Program Files\PCL 1.13.0\3rdParty\Qhull\lib'\
+
+LIBS += -L'C:\Program Files\PCL 1.13.1\3rdParty\Qhull\lib'\
 -lqhullcpp_d\
 -lqhullstatic_d\
 -lqhullstatic_rd\
 -lqhull_rd
-LIBS += -L'D:\Program Files\PCL 1.13.0\3rdParty\OpenNI2\Lib'\
+
+LIBS += -L'C:\Program Files\PCL 1.13.1\3rdParty\OpenNI2\Lib'\
 -lOpenNI2
-LIBS += -L'D:\Program Files\PCL 1.13.0\3rdParty\VTK\lib'\
+LIBS += -L'C:\Program Files\PCL 1.13.1\3rdParty\VTK\lib'\
 -lvtkcgns-9.2-gd\
 -lvtkChartsCore-9.2-gd\
 -lvtkCommonColor-9.2-gd\
@@ -164,8 +170,6 @@ LIBS += -L'D:\Program Files\PCL 1.13.0\3rdParty\VTK\lib'\
 -lvtkgl2ps-9.2-gd\
 -lvtkglew-9.2-gd\
 -lvtkGUISupportQt-9.2-gd\
--lvtkGUISupportQtQuick-9.2-gd\
--lvtkGUISupportQtSQL-9.2-gd\
 -lvtkhdf5-9.2-gd\
 -lvtkhdf5_hl-9.2-gd\
 -lvtkImagingColor-9.2-gd\
@@ -266,12 +270,13 @@ LIBS += -L'D:\Program Files\PCL 1.13.0\3rdParty\VTK\lib'\
 -lvtkViewsQt-9.2-gd\
 -lvtkWrappingTools-9.2-gd\
 -lvtkzlib-9.2-gd
-}else{
-LIBS += -L'D:\Program Files\PCL 1.13.0\lib'\
+} else {
+LIBS += -L'C:\Program Files\PCL 1.13.1\lib'\
 -lpcl_common\
 -lpcl_features\
 -lpcl_filters\
 -lpcl_io\
+-lpcl_iod\
 -lpcl_io_ply\
 -lpcl_kdtree\
 -lpcl_keypoints\
@@ -288,65 +293,71 @@ LIBS += -L'D:\Program Files\PCL 1.13.0\lib'\
 -lpcl_surface\
 -lpcl_tracking\
 -lpcl_visualization
-LIBS += -L'D:\Program Files\PCL 1.13.0\3rdParty/Boost\lib'\
--llibboost_atomic-vc143-mt-x64-1_80\
--llibboost_bzip2-vc143-mt-x64-1_80\
--llibboost_chrono-vc143-mt-x64-1_80\
--llibboost_container-vc143-mt-x64-1_80\
--llibboost_context-vc143-mt-x64-1_80\
--llibboost_contract-vc143-mt-x64-1_80\
--llibboost_coroutine-vc143-mt-x64-1_80\
--llibboost_date_time-vc143-mt-x64-1_80\
--llibboost_exception-vc143-mt-x64-1_80\
--llibboost_fiber-vc143-mt-x64-1_80\
--llibboost_filesystem-vc143-mt-x64-1_80\
--llibboost_graph-vc143-mt-x64-1_80\
--llibboost_graph_parallel-vc143-mt-x64-1_80\
--llibboost_iostreams-vc143-mt-x64-1_80\
--llibboost_json-vc143-mt-x64-1_80\
--llibboost_locale-vc143-mt-x64-1_80\
--llibboost_log-vc143-mt-x64-1_80\
--llibboost_log_setup-vc143-mt-x64-1_80\
--llibboost_math_c99-vc143-mt-x64-1_80\
--llibboost_math_c99f-vc143-mt-x64-1_80\
--llibboost_math_c99l-vc143-mt-x64-1_80\
--llibboost_math_tr1-vc143-mt-x64-1_80\
--llibboost_math_tr1f-vc143-mt-x64-1_80\
--llibboost_math_tr1l-vc143-mt-x64-1_80\
--llibboost_mpi-vc143-mt-x64-1_80\
--llibboost_nowide-vc143-mt-x64-1_80\
--llibboost_numpy310-vc143-mt-x64-1_80\
--llibboost_prg_exec_monitor-vc143-mt-x64-1_80\
--llibboost_program_options-vc143-mt-x64-1_80\
--llibboost_python310-vc143-mt-x64-1_80\
--llibboost_random-vc143-mt-x64-1_80\
--llibboost_regex-vc143-mt-x64-1_80\
--llibboost_serialization-vc143-mt-x64-1_80\
--llibboost_stacktrace_noop-vc143-mt-x64-1_80\
--llibboost_stacktrace_windbg-vc143-mt-x64-1_80\
--llibboost_stacktrace_windbg_cached-vc143-mt-x64-1_80\
--llibboost_system-vc143-mt-x64-1_80\
--llibboost_test_exec_monitor-vc143-mt-x64-1_80\
--llibboost_thread-vc143-mt-x64-1_80\
--llibboost_timer-vc143-mt-x64-1_80\
--llibboost_type_erasure-vc143-mt-x64-1_80\
--llibboost_unit_test_framework-vc143-mt-x64-1_80\
--llibboost_wave-vc143-mt-x64-1_80\
--llibboost_wserialization-vc143-mt-x64-1_80\
--llibboost_zlib-vc143-mt-x64-1_80
-LIBS += -L'D:\Program Files\PCL 1.13.0\3rdParty\FLANN\lib'\
+
+LIBS += -L'C:\Program Files\PCL 1.13.1\3rdParty\Boost\lib'\
+-llibboost_atomic-vc143-mt-x64-1_82\
+-llibboost_bzip2-vc143-mt-x64-1_82\
+-llibboost_chrono-vc143-mt-x64-1_82\
+-llibboost_container-vc143-mt-x64-1_82\
+-llibboost_context-vc143-mt-x64-1_82\
+-llibboost_contract-vc143-mt-x64-1_82\
+-llibboost_coroutine-vc143-mt-x64-1_82\
+-llibboost_date_time-vc143-mt-x64-1_82\
+-llibboost_exception-vc143-mt-x64-1_82\
+-llibboost_fiber-vc143-mt-x64-1_82\
+-llibboost_filesystem-vc143-mt-x64-1_82\
+-llibboost_graph-vc143-mt-x64-1_82\
+-llibboost_graph_parallel-vc143-mt-x64-1_82\
+-llibboost_iostreams-vc143-mt-x64-1_82\
+-llibboost_json-vc143-mt-x64-1_82\
+-llibboost_locale-vc143-mt-x64-1_82\
+-llibboost_log-vc143-mt-x64-1_82\
+-llibboost_log_setup-vc143-mt-x64-1_82\
+-llibboost_math_c99-vc143-mt-x64-1_82\
+-llibboost_math_c99f-vc143-mt-x64-1_82\
+-llibboost_math_c99l-vc143-mt-x64-1_82\
+-llibboost_math_tr1-vc143-mt-x64-1_82\
+-llibboost_math_tr1f-vc143-mt-x64-1_82\
+-llibboost_math_tr1l-vc143-mt-x64-1_82\
+-llibboost_mpi-vc143-mt-x64-1_82\
+-llibboost_nowide-vc143-mt-x64-1_82\
+-llibboost_numpy310-vc143-mt-x64-1_82\
+-llibboost_prg_exec_monitor-vc143-mt-x64-1_82\
+-llibboost_program_options-vc143-mt-x64-1_82\
+-llibboost_python310-vc143-mt-x64-1_82\
+-llibboost_random-vc143-mt-x64-1_82\
+-llibboost_regex-vc143-mt-x64-1_82\
+-llibboost_serialization-vc143-mt-x64-1_82\
+-llibboost_stacktrace_noop-vc143-mt-x64-1_82\
+-llibboost_stacktrace_windbg-vc143-mt-x64-1_82\
+-llibboost_stacktrace_windbg_cached-vc143-mt-x64-1_82\
+-llibboost_system-vc143-mt-x64-1_82\
+-llibboost_test_exec_monitor-vc143-mt-x64-1_82\
+-llibboost_thread-vc143-mt-x64-1_82\
+-llibboost_timer-vc143-mt-x64-1_82\
+-llibboost_type_erasure-vc143-mt-x64-1_82\
+-llibboost_unit_test_framework-vc143-mt-x64-1_82\
+-llibboost_url-vc143-mt-x64-1_82\
+-llibboost_wave-vc143-mt-x64-1_82\
+-llibboost_wserialization-vc143-mt-x64-1_82\
+-llibboost_zlib-vc143-mt-x64-1_82
+
+LIBS += -L'C:\Program Files\PCL 1.13.1\3rdParty\FLANN\lib'\
 -lflann\
 -lflann_cpp\
 -lflann_cpp_s\
 -lflann_s
-LIBS += -L'D:\Program Files\PCL 1.13.0\3rdParty\Qhull\lib'\
+
+LIBS += -L'C:\Program Files\PCL 1.13.1\3rdParty\Qhull\lib'\
 -lqhullcpp\
 -lqhullstatic\
 -lqhullstatic_r\
 -lqhull_r
-LIBS += -L'D:\Program Files\PCL 1.13.0\3rdParty\OpenNI2\Lib'\
+
+LIBS += -L'C:\Program Files\PCL 1.13.1\3rdParty\OpenNI2\Lib'\
 -lOpenNI2
-LIBS += -L'D:\Program Files\PCL 1.13.0\3rdParty\VTK\lib'\
+
+LIBS += -L'C:\Program Files\PCL 1.13.1\3rdParty\VTK\lib'\
 -lvtkcgns-9.2\
 -lvtkChartsCore-9.2\
 -lvtkCommonColor-9.2\
@@ -392,8 +403,6 @@ LIBS += -L'D:\Program Files\PCL 1.13.0\3rdParty\VTK\lib'\
 -lvtkgl2ps-9.2\
 -lvtkglew-9.2\
 -lvtkGUISupportQt-9.2\
--lvtkGUISupportQtQuick-9.2\
--lvtkGUISupportQtSQL-9.2\
 -lvtkhdf5-9.2\
 -lvtkhdf5_hl-9.2\
 -lvtkImagingColor-9.2\
@@ -495,15 +504,3 @@ LIBS += -L'D:\Program Files\PCL 1.13.0\3rdParty\VTK\lib'\
 -lvtkWrappingTools-9.2\
 -lvtkzlib-9.2
 }
-
-INCLUDEPATH += /usr/include/eigen3
-
-INCLUDEPATH += /usr/local/include/vtk-9.2
-LIBS += /usr/local/lib/libvtk*.so
-
-INCLUDEPATH += /usr/local/include/pcl-1.13
-LIBS += /usr/local/lib/libpcl_*.so
-
-RESOURCES += \
-    view_icon.qrc
-

@@ -20,6 +20,9 @@
 #include <vtkBoundingBox.h>//切换视图相关头文件
 #include <vtkRendererCollection.h>//切换视图相关头文件
 #include <vtkMath.h>//切换视图相关头文件
+#include <pcl/io/vtk_lib_io.h>
+#include <pcl/surface/gp3.h>
+#include <pcl/features/normal_3d.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -68,6 +71,8 @@ private slots:
 
     void on_render_begin_pressed();
 
+    void setButtonsEnabled(bool enabled); // 禁用新添加的函数声明
+
 
 private:
     Ui::MainWindow *ui;
@@ -75,7 +80,7 @@ private:
 
     boost::shared_ptr< pcl::visualization::PCLVisualizer > view;//加载点云的共享指针
     void updateCameraView(double focalPoint[3], double position[3], double viewUp[3]);//切换视图用
-
+    bool buttonsEnabled;//存储按钮状态
 
 
 };
