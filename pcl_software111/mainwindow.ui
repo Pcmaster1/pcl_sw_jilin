@@ -1,0 +1,1691 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>1076</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>PCL_PROCESSOR</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="view_icon.qrc">
+    <normaloff>:/new/prefix1/resource/point_cloud_icon.png</normaloff>:/new/prefix1/resource/point_cloud_icon.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QWidget" name="widget_5" native="true">
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: black;</string>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_7">
+       <item>
+        <widget class="CustomTreeView" name="treeView">
+         <property name="maximumSize">
+          <size>
+           <width>450</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="mouseTracking">
+          <bool>false</bool>
+         </property>
+         <property name="autoFillBackground">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;</string>
+         </property>
+         <property name="editTriggers">
+          <set>QAbstractItemView::NoEditTriggers</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QVTKOpenGLNativeWidget" name="guiwidget">
+         <property name="mouseTracking">
+          <bool>false</bool>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="autoFillBackground">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #000000, stop:1 #00008B);</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>文件</string>
+    </property>
+    <widget class="QMenu" name="menu_output">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="title">
+      <string>另存为(output)</string>
+     </property>
+     <addaction name="actionSTL"/>
+     <addaction name="actionOBJ"/>
+     <addaction name="actionTXT"/>
+     <addaction name="actionPLY"/>
+     <addaction name="actionPCD"/>
+    </widget>
+    <addaction name="open_action"/>
+    <addaction name="save_action"/>
+    <addaction name="menu_output"/>
+    <addaction name="separator"/>
+    <addaction name="close_action"/>
+    <addaction name="exit_action"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="title">
+     <string>窗口</string>
+    </property>
+    <addaction name="visualization_action"/>
+    <addaction name="processing_action"/>
+   </widget>
+   <widget class="QMenu" name="menu_4">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="title">
+     <string>离群点移除</string>
+    </property>
+    <addaction name="actionStatisticalOutlierRemove"/>
+   </widget>
+   <widget class="QMenu" name="menu_5">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="title">
+     <string>滤波</string>
+    </property>
+    <widget class="QMenu" name="menu_3">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="title">
+      <string>直通滤波器</string>
+     </property>
+     <addaction name="actionX"/>
+     <addaction name="actiony"/>
+     <addaction name="actionZ"/>
+    </widget>
+    <addaction name="VoxelGrid"/>
+    <addaction name="menu_3"/>
+    <addaction name="RadiusOutlinerRemoval"/>
+    <addaction name="StatisticalOutlierRemoval1"/>
+    <addaction name="ProjectInliers"/>
+   </widget>
+   <widget class="QMenu" name="menu_7">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="title">
+     <string>关键点</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menu_8">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="title">
+     <string>表面重建</string>
+    </property>
+    <addaction name="tanlan"/>
+    <addaction name="bosong1"/>
+    <addaction name="marching_cubes"/>
+    <addaction name="action_B"/>
+   </widget>
+   <widget class="QMenu" name="menu_9">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="title">
+     <string>快捷键</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menu_10">
+    <property name="title">
+     <string>帮助</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menu_11">
+    <property name="title">
+     <string>主题</string>
+    </property>
+    <addaction name="bb_theme"/>
+    <addaction name="action1"/>
+    <addaction name="action3"/>
+    <addaction name="action4"/>
+   </widget>
+   <widget class="QMenu" name="menu_12">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="title">
+     <string>分割</string>
+    </property>
+    <addaction name="Mouse_select"/>
+    <addaction name="divide"/>
+    <addaction name="separator"/>
+    <addaction name="mergeButton"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_2"/>
+   <addaction name="menu_4"/>
+   <addaction name="menu_5"/>
+   <addaction name="menu_7"/>
+   <addaction name="menu_12"/>
+   <addaction name="menu_8"/>
+   <addaction name="menu_9"/>
+   <addaction name="menu_10"/>
+   <addaction name="menu_11"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="open_action"/>
+   <addaction name="save_action"/>
+   <addaction name="actionSTL"/>
+   <addaction name="tree_clear"/>
+   <addaction name="separator"/>
+   <addaction name="actionLaplas"/>
+   <addaction name="actionGauss"/>
+   <addaction name="separator"/>
+   <addaction name="Triangular_meshing"/>
+   <addaction name="bosong1"/>
+   <addaction name="marching_cubes"/>
+   <addaction name="action_B"/>
+   <addaction name="interpolation"/>
+   <addaction name="Mouse_select"/>
+   <addaction name="divide"/>
+   <addaction name="separator"/>
+   <addaction name="actionhelp"/>
+  </widget>
+  <widget class="QToolBar" name="toolBar_2">
+   <property name="windowTitle">
+    <string>toolBar_2</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>LeftToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="if_axis_appear"/>
+   <addaction name="reset_view"/>
+   <addaction name="interface_larger"/>
+   <addaction name="interface_smaller"/>
+   <addaction name="actionmain_view"/>
+   <addaction name="actionback_view"/>
+   <addaction name="actionleft_view"/>
+   <addaction name="actionright_view"/>
+   <addaction name="actiontop_view"/>
+   <addaction name="actionup_view"/>
+  </widget>
+  <widget class="QDockWidget" name="dockWidget_3">
+   <property name="minimumSize">
+    <size>
+     <width>500</width>
+     <height>599</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>500</width>
+     <height>800</height>
+    </size>
+   </property>
+   <property name="mouseTracking">
+    <bool>false</bool>
+   </property>
+   <property name="tabletTracking">
+    <bool>false</bool>
+   </property>
+   <property name="acceptDrops">
+    <bool>false</bool>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="inputMethodHints">
+    <set>Qt::ImhNone</set>
+   </property>
+   <property name="floating">
+    <bool>true</bool>
+   </property>
+   <property name="features">
+    <set>QDockWidget::DockWidgetClosable|QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::AllDockWidgetAreas</set>
+   </property>
+   <property name="windowTitle">
+    <string>点云处理操作界面</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_3">
+    <layout class="QVBoxLayout" name="verticalLayout_3">
+     <item>
+      <widget class="QWidget" name="widget_6" native="true">
+       <layout class="QVBoxLayout" name="verticalLayout_8">
+        <item>
+         <widget class="QLabel" name="label_5">
+          <property name="text">
+           <string>预处理操作：</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="L_yuzhi1">
+          <property name="text">
+           <string>判断阈值：</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QDoubleSpinBox" name="L_yuzhi">
+          <property name="maximum">
+           <double>5.000000000000000</double>
+          </property>
+          <property name="singleStep">
+           <double>0.250000000000000</double>
+          </property>
+          <property name="value">
+           <double>1.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="L_search1">
+          <property name="text">
+           <string>考虑临近点个数：</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="L_search">
+          <property name="maximum">
+           <number>10000</number>
+          </property>
+          <property name="singleStep">
+           <number>1</number>
+          </property>
+          <property name="value">
+           <number>50</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="delete_away">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>离群点去除</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>下采样</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="widget_9" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <item>
+            <layout class="QFormLayout" name="formLayout">
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_12">
+               <property name="text">
+                <string>平滑迭代次数：</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QSpinBox" name="diedai">
+               <property name="minimum">
+                <number>1</number>
+               </property>
+               <property name="maximum">
+                <number>1000</number>
+               </property>
+               <property name="singleStep">
+                <number>5</number>
+               </property>
+               <property name="value">
+                <number>10</number>
+               </property>
+               <property name="displayIntegerBase">
+                <number>10</number>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_13">
+               <property name="text">
+                <string>松弛因子：</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QDoubleSpinBox" name="songchi">
+               <property name="minimum">
+                <double>0.010000000000000</double>
+               </property>
+               <property name="maximum">
+                <double>1.000000000000000</double>
+               </property>
+               <property name="value">
+                <double>0.500000000000000</double>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_2">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string>拉普拉斯平滑处理</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QFormLayout" name="formLayout_2">
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_10">
+               <property name="text">
+                <string>搜索半径：</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QDoubleSpinBox" name="G_searchradius">
+               <property name="maximum">
+                <double>9999.000000000000000</double>
+               </property>
+               <property name="value">
+                <double>10.000000000000000</double>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_11">
+               <property name="text">
+                <string>标准差：</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QSpinBox" name="G_standard">
+               <property name="maximum">
+                <number>10000</number>
+               </property>
+               <property name="singleStep">
+                <number>10</number>
+               </property>
+               <property name="value">
+                <number>6</number>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QPushButton" name="Gauss_Button">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string>高斯平滑处理</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="Line" name="line_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_2" native="true">
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>插值操作：</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_7">
+          <item>
+           <widget class="QPushButton" name="chazhi">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string>最近邻插值</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="chazhi1">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string>距离反比插值</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="Line" name="line_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_10" native="true">
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QWidget" name="widget" native="true">
+          <layout class="QVBoxLayout" name="verticalLayout_4">
+           <item>
+            <widget class="QLabel" name="label_4">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>网格化操作：</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QWidget" name="widget_7" native="true">
+             <layout class="QGridLayout" name="gridLayout_2">
+              <item row="0" column="1" rowspan="2" colspan="2">
+               <widget class="QDoubleSpinBox" name="searchradius">
+                <property name="maximum">
+                 <double>9999.000000000000000</double>
+                </property>
+                <property name="value">
+                 <double>10.000000000000000</double>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="4" rowspan="2" colspan="2">
+               <widget class="QDoubleSpinBox" name="fluent_coefficient">
+                <property name="singleStep">
+                 <double>0.500000000000000</double>
+                </property>
+                <property name="value">
+                 <double>3.500000000000000</double>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0" colspan="2">
+               <widget class="QLabel" name="label_8">
+                <property name="text">
+                 <string>最大邻居点数：</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="3" colspan="2">
+               <widget class="QLabel" name="label_9">
+                <property name="text">
+                 <string>考虑点的法线一致性:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="2">
+               <widget class="QSpinBox" name="setMaximumNearestNeighbors">
+                <property name="maximum">
+                 <number>10000</number>
+                </property>
+                <property name="singleStep">
+                 <number>10</number>
+                </property>
+                <property name="value">
+                 <number>1500</number>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="3" rowspan="2">
+               <widget class="QLabel" name="label_7">
+                <property name="text">
+                 <string>光滑密度因子：</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0" rowspan="2">
+               <widget class="QLabel" name="label_6">
+                <property name="text">
+                 <string>搜索半径：</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="5">
+               <widget class="QComboBox" name="comboBox_3">
+                <item>
+                 <property name="text">
+                  <string>否</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>是</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="TaLanSanJiao">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string>进行贪婪三角化</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="bosong">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string>泊松重建</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="Line" name="line_4">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="widget_8" native="true">
+          <layout class="QVBoxLayout" name="verticalLayout_6">
+           <item>
+            <widget class="QLabel" name="label_14">
+             <property name="text">
+              <string>a-shape凹包算法：</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_8">
+             <item>
+              <widget class="QLabel" name="label_15">
+               <property name="text">
+                <string>alpha值：</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QDoubleSpinBox" name="searchradius_2">
+               <property name="maximum">
+                <double>9999.000000000000000</double>
+               </property>
+               <property name="value">
+                <double>10.000000000000000</double>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QPushButton" name="aobao">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string>进行凹包重建</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="dockWidget">
+   <property name="minimumSize">
+    <size>
+     <width>88</width>
+     <height>107</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>524287</width>
+     <height>150</height>
+    </size>
+   </property>
+   <property name="features">
+    <set>QDockWidget::DockWidgetMovable</set>
+   </property>
+   <property name="windowTitle">
+    <string>点云处理实时日志：</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>8</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_2">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QTextEdit" name="log_textEdit">
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="dockWidget_2">
+   <property name="acceptDrops">
+    <bool>false</bool>
+   </property>
+   <property name="floating">
+    <bool>true</bool>
+   </property>
+   <property name="features">
+    <set>QDockWidget::DockWidgetClosable|QDockWidget::DockWidgetMovable</set>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::AllDockWidgetAreas</set>
+   </property>
+   <property name="windowTitle">
+    <string>点云可视化操作界面</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents">
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="QWidget" name="widget_4" native="true">
+       <layout class="QHBoxLayout" name="horizontalLayout_6">
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>视图转换：</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="0" column="0">
+           <widget class="QPushButton" name="main_view">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>35</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="view_icon.qrc">
+              <normaloff>:/new/prefix1/resource/main_view.png</normaloff>:/new/prefix1/resource/main_view.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QPushButton" name="back_view">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>35</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="view_icon.qrc">
+              <normaloff>:/new/prefix1/resource/back_view.png</normaloff>:/new/prefix1/resource/back_view.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QPushButton" name="left_view">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>35</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="view_icon.qrc">
+              <normaloff>:/new/prefix1/resource/left_view.png</normaloff>:/new/prefix1/resource/left_view.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QPushButton" name="right_view">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>35</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="view_icon.qrc">
+              <normaloff>:/new/prefix1/resource/right_view.png</normaloff>:/new/prefix1/resource/right_view.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QPushButton" name="top_view">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>35</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="view_icon.qrc">
+              <normaloff>:/new/prefix1/resource/top_view.png</normaloff>:/new/prefix1/resource/top_view.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QPushButton" name="upward_view">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>35</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="view_icon.qrc">
+              <normaloff>:/new/prefix1/resource/up_view.png</normaloff>:/new/prefix1/resource/up_view.png</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="Line" name="line">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_3" native="true">
+       <layout class="QHBoxLayout" name="horizontalLayout_5">
+        <item>
+         <widget class="QLabel" name="label_2">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>高程渲染：</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <item>
+           <widget class="QComboBox" name="comboBox">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>22</height>
+             </size>
+            </property>
+            <item>
+             <property name="text">
+              <string>选择轴向（当前为非渲染状态）</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>X轴</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Y轴</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Z轴</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="comboBox_2">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>22</height>
+             </size>
+            </property>
+            <item>
+             <property name="text">
+              <string>彩色渐变（默认）</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>蓝色渐变</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>红色渐变</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>黄色渐变</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="render_begin">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>22</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>渲染</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <action name="open_action">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="view_icon.qrc">
+     <normaloff>:/new/prefix1/resource/open.png</normaloff>:/new/prefix1/resource/open.png</iconset>
+   </property>
+   <property name="text">
+    <string>加载点云（open）</string>
+   </property>
+   <property name="toolTip">
+    <string>打开点云文件</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="save_action">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="view_icon.qrc">
+     <normaloff>:/new/prefix1/resource/save.png</normaloff>:/new/prefix1/resource/save.png</iconset>
+   </property>
+   <property name="text">
+    <string>保存（save）</string>
+   </property>
+   <property name="toolTip">
+    <string>保存点云文件</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="close_action">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>关闭所有（close）</string>
+   </property>
+   <property name="toolTip">
+    <string>关闭所有打开的点云文件</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="exit_action">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>退出程序（exit）</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionPCD">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>PCD</string>
+   </property>
+  </action>
+  <action name="actionPLY">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>PLY</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionTXT">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>TXT</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionOBJ">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>OBJ</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionSTL">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="view_icon.qrc">
+     <normaloff>:/new/prefix1/resource/Save_As.png</normaloff>:/new/prefix1/resource/Save_As.png</iconset>
+   </property>
+   <property name="text">
+    <string>STL</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="if_axis_appear">
+   <property name="icon">
+    <iconset resource="view_icon.qrc">
+     <normaloff>:/new/prefix1/resource/axis.png</normaloff>:/new/prefix1/resource/axis.png</iconset>
+   </property>
+   <property name="text">
+    <string>坐标轴显示</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="interface_larger">
+   <property name="icon">
+    <iconset resource="view_icon.qrc">
+     <normaloff>:/new/prefix1/resource/bigger.png</normaloff>:/new/prefix1/resource/bigger.png</iconset>
+   </property>
+   <property name="text">
+    <string>界面放大</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="reset_view">
+   <property name="icon">
+    <iconset resource="view_icon.qrc">
+     <normaloff>:/new/prefix1/resource/eye.png</normaloff>:/new/prefix1/resource/eye.png</iconset>
+   </property>
+   <property name="text">
+    <string>视角复位</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="interface_smaller">
+   <property name="icon">
+    <iconset resource="view_icon.qrc">
+     <normaloff>:/new/prefix1/resource/smaller.png</normaloff>:/new/prefix1/resource/smaller.png</iconset>
+   </property>
+   <property name="text">
+    <string>界面缩小</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="bb_theme">
+   <property name="text">
+    <string>白蓝风格</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="action1">
+   <property name="text">
+    <string>原风格</string>
+   </property>
+  </action>
+  <action name="action3">
+   <property name="text">
+    <string>黑色风格</string>
+   </property>
+  </action>
+  <action name="action4">
+   <property name="text">
+    <string>白黑风格</string>
+   </property>
+  </action>
+  <action name="Triangular_meshing">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="view_icon.qrc">
+     <normaloff>:/new/prefix1/resource/meshing.png</normaloff>:/new/prefix1/resource/meshing.png</iconset>
+   </property>
+   <property name="text">
+    <string>三角网格化</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="interpolation">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="view_icon.qrc">
+     <normaloff>:/new/prefix1/resource/interpolation.png</normaloff>:/new/prefix1/resource/interpolation.png</iconset>
+   </property>
+   <property name="text">
+    <string>最近邻插值</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionmain_view">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="view_icon.qrc">
+     <normaloff>:/new/prefix1/resource/main_view.png</normaloff>:/new/prefix1/resource/main_view.png</iconset>
+   </property>
+   <property name="text">
+    <string>main_view</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionback_view">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="view_icon.qrc">
+     <normaloff>:/new/prefix1/resource/back_view.png</normaloff>:/new/prefix1/resource/back_view.png</iconset>
+   </property>
+   <property name="text">
+    <string>back_view</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionleft_view">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="view_icon.qrc">
+     <normaloff>:/new/prefix1/resource/left_view.png</normaloff>:/new/prefix1/resource/left_view.png</iconset>
+   </property>
+   <property name="text">
+    <string>left_view</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionright_view">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="view_icon.qrc">
+     <normaloff>:/new/prefix1/resource/right_view.png</normaloff>:/new/prefix1/resource/right_view.png</iconset>
+   </property>
+   <property name="text">
+    <string>right_view</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actiontop_view">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="view_icon.qrc">
+     <normaloff>:/new/prefix1/resource/top_view.png</normaloff>:/new/prefix1/resource/top_view.png</iconset>
+   </property>
+   <property name="text">
+    <string>top_view</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionup_view">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="view_icon.qrc">
+     <normaloff>:/new/prefix1/resource/up_view.png</normaloff>:/new/prefix1/resource/up_view.png</iconset>
+   </property>
+   <property name="text">
+    <string>up_view</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="visualization_action">
+   <property name="text">
+    <string>可视化操作窗口</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="processing_action">
+   <property name="text">
+    <string>点云处理窗口</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="tree_clear">
+   <property name="icon">
+    <iconset resource="view_icon.qrc">
+     <normaloff>:/new/prefix1/resource/tree_clear.png</normaloff>:/new/prefix1/resource/tree_clear.png</iconset>
+   </property>
+   <property name="text">
+    <string>清空树状图</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="Mouse_select">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="view_icon.qrc">
+     <normaloff>:/new/prefix1/resource/kuangxuan.png</normaloff>:/new/prefix1/resource/kuangxuan.png</iconset>
+   </property>
+   <property name="text">
+    <string>鼠标框选</string>
+   </property>
+   <property name="toolTip">
+    <string>鼠标框选出要保留的点云部分</string>
+   </property>
+   <property name="shortcut">
+    <string>F</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="divide">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="view_icon.qrc">
+     <normaloff>:/new/prefix1/resource/fenge.png</normaloff>:/new/prefix1/resource/fenge.png</iconset>
+   </property>
+   <property name="text">
+    <string>开始分割</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="tanlan">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="view_icon.qrc">
+     <normaloff>:/new/prefix1/resource/meshing.png</normaloff>:/new/prefix1/resource/meshing.png</iconset>
+   </property>
+   <property name="text">
+    <string>贪婪三角化</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="bosong1">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="view_icon.qrc">
+     <normaloff>:/new/prefix1/resource/bosong.png</normaloff>:/new/prefix1/resource/bosong.png</iconset>
+   </property>
+   <property name="text">
+    <string>泊松重建</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionStatisticalOutlierRemove">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>StatisticalOutlierRemove</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="VoxelGrid">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>体素滤波器</string>
+   </property>
+   <property name="toolTip">
+    <string>VoxelGrid</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="RadiusOutlinerRemoval">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>半径离群点去除滤波器</string>
+   </property>
+   <property name="toolTip">
+    <string>RadiusOutlinerRemoval</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="StatisticalOutlierRemoval1">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>统计离群点去除滤波器</string>
+   </property>
+   <property name="toolTip">
+    <string>StatisticalOutlierRemoval</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionX">
+   <property name="text">
+    <string>X轴</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actiony">
+   <property name="text">
+    <string>Y轴</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionZ">
+   <property name="text">
+    <string>Z轴</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="ProjectInliers">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>投影参数化模型滤波器</string>
+   </property>
+   <property name="toolTip">
+    <string>ProjectInliers</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionLaplas">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="view_icon.qrc">
+     <normaloff>:/new/prefix1/resource/Laplas.png</normaloff>:/new/prefix1/resource/Laplas.png</iconset>
+   </property>
+   <property name="text">
+    <string>拉普拉斯平滑</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionGauss">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="view_icon.qrc">
+     <normaloff>:/new/prefix1/resource/Gauss.png</normaloff>:/new/prefix1/resource/Gauss.png</iconset>
+   </property>
+   <property name="text">
+    <string>高斯平滑</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionhelp">
+   <property name="icon">
+    <iconset resource="view_icon.qrc">
+     <normaloff>:/new/prefix1/resource/help.png</normaloff>:/new/prefix1/resource/help.png</iconset>
+   </property>
+   <property name="text">
+    <string>帮助</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="marching_cubes">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="view_icon.qrc">
+     <normaloff>:/new/prefix1/resource/marching_cubes.png</normaloff>:/new/prefix1/resource/marching_cubes.png</iconset>
+   </property>
+   <property name="text">
+    <string>移动立方体重建</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="action_B">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="view_icon.qrc">
+     <normaloff>:/new/prefix1/resource/a-shape.png</normaloff>:/new/prefix1/resource/a-shape.png</iconset>
+   </property>
+   <property name="text">
+    <string>a-shape凹包重建</string>
+   </property>
+   <property name="toolTip">
+    <string>a-shape凹包重建</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="mergeButton">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>点云拼接</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QVTKOpenGLNativeWidget</class>
+   <extends>QOpenGLWidget</extends>
+   <header location="global">QVTKOpenGLNativeWidget.h</header>
+  </customwidget>
+  <customwidget>
+   <class>CustomTreeView</class>
+   <extends>QTreeView</extends>
+   <header location="global">CustomTreeView.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="view_icon.qrc"/>
+ </resources>
+ <connections/>
+</ui>
